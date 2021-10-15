@@ -1,0 +1,23 @@
+service: serveless
+
+frameworkVersion: '2'
+
+
+provider:
+  name: aws
+  region: sa-east-1
+  runtime: nodejs12.x
+  memorySize: 256
+  lambdaHashingVersion: 20201221
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'ses:*'
+        - 'sqs:*'
+      Resource: '*'
+
+functions:
+  sendemails:
+    handler: functions/sendemails.handlerSendEmail
+    description: handle send emails service
+        
