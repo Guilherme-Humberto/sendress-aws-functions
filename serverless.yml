@@ -20,4 +20,10 @@ functions:
   sendemails:
     handler: functions/sendemails.handlerSendEmail
     description: handle send emails service
+
+  subscriptionJobs:
+    handler: functions/subscriptionJobs.handlerSubscriptionJobs
+    description: handle subscriptions status
+    events:
+      - schedule: rate(1 day)
         
